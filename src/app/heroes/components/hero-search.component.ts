@@ -22,7 +22,8 @@ import { Hero } from '../models/hero.model';
     providers: [HeroSearchService]
 })
 
-export class HeroSearchComponent implements OnInit {
+export class HeroSearchComponent implements OnInit
+{
 
     heroes: Observable<Hero[]>;
     private searchTerms = new Subject<string>();
@@ -33,29 +34,34 @@ export class HeroSearchComponent implements OnInit {
     ) { }
 
     // Push a search term into the observable stream.
-    search(term: string): void {
+    search(term: string): void
+    {
         this.searchTerms.next(term);
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void
+    {
         this.heroes = this.searchTerms
             .debounceTime(300)        // wait 300ms after each keystroke before considering the term
             .distinctUntilChanged()   // ignore if next search term is same as previous
-            .switchMap(term => {
+            .switchMap(term =>
+            {
                 return term   // switch to new observable each time the term changes
-                // return the http search observable
-                ? this.heroSearchService.search(term)
-                // or the observable of empty heroes if there was no search term
-                : Observable.of<Hero[]>([]);
+                    // return the http search observable
+                    ? this.heroSearchService.search(term)
+                    // or the observable of empty heroes if there was no search term
+                    : Observable.of<Hero[]>([]);
             })
-            .catch(error => {
+            .catch(error =>
+            {
                 // TODO: add real error handling
                 console.log(error);
                 return Observable.of<Hero[]>([]);
             });
     }
 
-    gotoDetail(hero: Hero): void {
+    gotoDetail(hero: Hero): void
+    {
         let link = ['/heroes/detail', hero.id];
         this.router.navigate(link);
     }
