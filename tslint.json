@@ -54,7 +54,6 @@
         "one-line": [
             true,
             "check-catch",
-            "check-else",
             "check-whitespace"
         ],
         "quotemark": [
