@@ -12,7 +12,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { HeroSearchService } from '../services/hero-search.service';
-import { Hero } from '../models/hero';
+import { Hero } from '../models/hero.model';
 
 @Component({
     moduleId: module.id,
@@ -56,7 +56,7 @@ export class HeroSearchComponent implements OnInit {
     }
 
     gotoDetail(hero: Hero): void {
-        let link = ['/detail', hero.id];
+        let link = ['/heroes/detail', hero.id];
         this.router.navigate(link);
     }
 }
