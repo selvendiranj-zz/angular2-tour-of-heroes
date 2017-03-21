@@ -4,8 +4,15 @@
         "**/node_modules": true,
         "**/.git": true,
         "**/.DS_Store": true,
+<<<<<<< HEAD
         "**/*.js": {"when": "$(basename).ts"},
         "**/*.js.map": {"when": "$(basename).map"}
     },
     "vsicons.presets.angular": true
+=======
+        "**/*.js": { "when": "$(basename).ts" },
+        "**/*.js.map": { "when": "$(basename).map" },
+        "npm-debug.log": true
+    }
+>>>>>>> ded4f9a97129885fd1debeed607f157985c3a321
 }
